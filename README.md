@@ -5,8 +5,8 @@
 The Snort Version 2.9.8.0 and DAQ Version 2.0.6
 
 # Docker Usage
-You may need to run as `sudo`
-Attach the snort in container to have full access to the network
+
+You may need to run as `sudo` Attach the snort in container to have full access to the network
 
 ```
 $ docker run -it --rm --net=host linton/docker-snort /bin/bash
@@ -17,7 +17,6 @@ Or you may need to add --cap-add=NET_ADMIN or --privileged (unsafe)
 ```
 $ docker run -it --rm --net=host --cap-add=NET_ADMIN linton/docker-snort /bin/bash
 ```
-
 
 # Snort Usage
 
@@ -43,4 +42,22 @@ Ping in the container then the alert message will show on the console
 
 ```
 ping 8.8.8.8
+```
+
+Add local folder to volumes:
+
+```bash
+docker run  -v /path_to_pcap/pcap:/opt -it --rm --net=host --cap-add=NET_ADMIN linton/docker-snort /bin/bash
+```
+
+Analyse local
+
+```bash
+snort -c /etc/snort/etc/snort.conf -r dns-remoteshell.pcap
+```
+
+Or you can use run.sh file
+
+```bash
+bash run.sh /path_to_pcap/pcap
 ```
