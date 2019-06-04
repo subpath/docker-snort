@@ -47,17 +47,17 @@ ping 8.8.8.8
 Add local folder to volumes:
 
 ```bash
-docker run  -v /path_to_pcap/pcap:/opt -it --rm --net=host --cap-add=NET_ADMIN linton/docker-snort /bin/bash
+docker run  -v /path_to_pcap:/opt -it --rm --net=host --cap-add=NET_ADMIN linton/docker-snort /bin/bash
 ```
 
 Analyse local
 
 ```bash
-snort -c /etc/snort/etc/snort.conf -r dns-remoteshell.pcap
+snort -c /etc/snort/snort.conf -r your_file.pcap
 ```
 
 Or you can use run.sh file
 
 ```bash
-bash run.sh /path_to_pcap/pcap
+bash run.sh /path_to_pcap
 ```
