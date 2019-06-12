@@ -50,8 +50,8 @@ RUN wget --no-check-certificate \
     && unzip master.zip
 
 # ENV SNORT_RULES_SNAPSHOT 2972
-# ADD snortrules-snapshot-${SNORT_RULES_SNAPSHOT} /opt
-ADD mysnortrules /opt
+ADD snortrules-snapshot-${SNORT_RULES_SNAPSHOT} /opt
+# ADD mysnortrules /opt
 RUN mkdir -p /var/log/snort && \
     mkdir -p /usr/local/lib/snort_dynamicrules && \
     mkdir -p /etc/snort && \
@@ -81,7 +81,6 @@ RUN mkdir -p /var/log/snort && \
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     /opt/snort-${SNORT_VERSION}.tar.gz /opt/daq-${DAQ_VERSION}.tar.gz
-
 
 ENV NETWORK_INTERFACE eth0
 # Validate an installation

@@ -53,7 +53,7 @@ docker run  -v /path_to_pcap:/opt -it --rm --net=host --cap-add=NET_ADMIN linton
 Analyse local
 
 ```bash
-snort -c /etc/snort/snort.conf -r your_file.pcap
+snort -c /etc/snort/etc/snort.conf -r your_file.pcap
 ```
 
 Or you can use run.sh file
