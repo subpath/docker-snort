@@ -50,14 +50,21 @@ Add local folder to volumes:
 docker run  -v /path_to_pcap:/opt -it --rm --net=host --cap-add=NET_ADMIN linton/docker-snort /bin/bash
 ```
 
-Analyse local
+## How to analyze pcap file:
 
-```bash
-snort -c /etc/snort/etc/snort.conf -r your_file.pcap
-```
-
-Or you can use run.sh file
+Run docker container:
 
 ```bash
 bash run.sh /path_to_pcap
 ```
+
+Analyze pcap file
+
+```bash
+bash analyze.sh path_to_pcap/file.pcap
+```
+
+You can find resulted alerts here :
+
+```path_to_pcap/file_alerts.txt```
+
